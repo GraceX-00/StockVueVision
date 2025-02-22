@@ -4,7 +4,12 @@
       <el-aside width="25%">
         <AssetDisplayModule />
       </el-aside>
-      <el-main>Main</el-main>
+      <el-main>
+        <div class="main-content">
+          <StrategyExecution /> <!-- 策略选择和详情 -->
+          <StrategyExecutionResult /> <!-- 策略执行结果 -->
+        </div>
+      </el-main>
       <el-aside width="25%">Aside</el-aside>
     </el-container>
   </div>
@@ -12,11 +17,15 @@
 
 <script>
 import AssetDisplayModule from '../AssetDisplayModule.vue';
+import StrategyExecution from '../basic/StrategyExecution.vue'; // 引入策略选择组件
+import StrategyExecutionResult from '../basic/StrategyExecutionResult.vue'; // 引入策略执行结果组件
 
 export default {
   name: 'BasicLayout',
   components: {
     AssetDisplayModule,
+    StrategyExecution,
+    StrategyExecutionResult,
   },
 };
 </script>
@@ -39,5 +48,11 @@ export default {
 .el-main {
   background-color: #ffffff; /* 主体背景色 */
   padding: 20px; /* 主体内边距 */
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 组件之间的间距 */
 }
 </style>
